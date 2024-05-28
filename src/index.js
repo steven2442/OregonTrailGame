@@ -1,6 +1,6 @@
-import {startGame} from "./start_page.js"
-import { startMission, upgrade } from "./game_execution.js"
-import { playerStats } from "./player.js"
+import {startGame} from "./Game/start_page.js"
+import { startMission, upgrade } from "./Game/game_execution.js"
+import { playerStats } from "./Game/player.js"
 import { pirates } from "./Events/pirates.js"
 
 //Main file for exectution of game
@@ -16,5 +16,4 @@ i++
 }}
 
 run()
-
 // win 

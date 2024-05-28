@@ -1,5 +1,5 @@
-import { travel } from "../functions.js"
-import { playerStats } from "../player.js"
+import { travel } from "../Game/functions.js"
+import { playerStats } from "../Game/player.js"
 
 export const nothingHappensFlavor = () =>{
     // TODO this should take thename from the planets object
