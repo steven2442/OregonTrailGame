@@ -1,7 +1,7 @@
-import { pirates } from "./Events/pirates.js"
-import { drinkingGame } from "./Events/drinkingGame.js"
-import  {nothingHappens} from "./Events/nothingHappens.js"
-import { damagedSpaceport } from "./Events/damagedSpaceport.js"
+import { pirates } from "../Events/pirates.js"
+import { drinkingGame } from "../Events/drinking_game.js"
+import  {nothingHappens} from "../Events/nothing_happens.js"
+import { damagedSpaceport } from "../Events/damaged_spaceport.js"
 
 const omega = {
     name: "Omega",

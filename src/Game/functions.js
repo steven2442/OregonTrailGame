@@ -1,10 +1,11 @@
 import { playerStats } from "./player.js"
+import { write } from "./utils.js"
 
 export const printPlayerStats = () =>{
-    console.log(
-        "Gold:"+playerStats.gold,
-        "Fuel:"+playerStats.fuel,
-        "Health:"+playerStats.health,
+    write(
+        "Gold:"+playerStats.gold + " " +
+        "Fuel:"+playerStats.fuel + " " +
+        "Health:"+playerStats.health + " " +
         "Distance:"+playerStats.distanceToPlanet)
 }
 

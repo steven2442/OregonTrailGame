@@ -1,7 +1,7 @@
-import { playerStats } from "../player.js"
-import { piratesFlavour, piratesBribe, piratesFight, piratesRun } from "./piratesText.js"
-import { notOptionError } from "../userInputError.js"
-import inquirer from 'inquirer';
+import { piratesFlavour, piratesBribe, piratesFight, piratesRun } from "./pirates_text.js"
+import { notOptionError } from "../Game/user_input_error.js"
+import { write } from "../Game/utils.js"
+import { writePrompt } from "../Game/utils.js"
 
 
 //some event bullshit
@@ -11,15 +11,14 @@ piratesFlavour()
 
 
 
-const ans = await inquirer
-  .prompt([
-    {type: "input",
-    name: "question",
-    message: "What will you do: Fight, Run, Bribe?"
+  const ans = await writePrompt([
+      {type: "input",
+      name: "question",
+      message: "What will you do: Fight, Run, Bribe?"
 }
   ]);
 
-  console.log(ans.question)
+  write(ans.question)
 switch (ans.question.toLowerCase()) {
     case("fight"):
     piratesFight()

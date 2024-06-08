@@ -1,9 +1,10 @@
-import {damagedSpaceportFlavour, damagedSpaceportExplore, damagedSpaceportLeave, spaceportDamageText} from "./damagedSpaceportText.js"
-import inquirer from "inquirer";
-import { notOptionError } from "../userInputError.js"
-import { playerStats } from "../player.js"
-import {damagedSpaceportRepeatingExplore} from "./damagedSpaceportRepeatingText.js"
-import {damagedSpaceportRepeatingLeave} from "./damagedSpaceportRepeatingText.js"
+import {damagedSpaceportFlavour, damagedSpaceportExplore, damagedSpaceportLeave} from "./damaged_spaceport_text.js"
+import { notOptionError } from "../Game/user_input_error.js"
+import {damagedSpaceportRepeatingExplore} from "./damaged_spaceport_repeatingText.js"
+import {damagedSpaceportRepeatingLeave} from "./damaged_spaceport_repeatingText.js"
+import { write } from "../Game/utils.js"
+import { writePrompt } from "../Game/utils.js"
+
 
 
 export const spaceportIntegrity = {
@@ -13,15 +14,14 @@ export const damagedSpaceport = async () =>{
   damagedSpaceportFlavour()
   spaceportIntegrity.spaceportIntegrity = 20
 
-    const ans = await inquirer
-  .prompt([
+  const ans = await writePrompt([
     {type: "input",
     name: "question",
     message: "What will you do: Explore, Leave?"
 }
   ]);
 
-  console.log(ans.question)
+  write(ans.question)
   switch (ans.question.toLowerCase()) {
       case("explore"):
       spaceportIntegrity.spaceportIntegrity -= (Math.floor(Math.random() * 10));
@@ -30,7 +30,7 @@ export const damagedSpaceport = async () =>{
         break
       }
       while (true){
-        const furtherAction = await inquirer.prompt([
+        const furtherAction = await writePrompt([
           {
          type: "input",
           name: "question",
@@ -40,16 +40,14 @@ export const damagedSpaceport = async () =>{
 
         switch(furtherAction.question.toLowerCase()){
             case("explore"):
-            spaceportIntegrity.spaceportIntegrity =- (Math.floor(Math.random() * 10));
-            console.log(spaceportIntegrity.spaceportIntegrity)
+            spaceportIntegrity.spaceportIntegrity -= (Math.floor(Math.random() * 10));
+            write(spaceportIntegrity.spaceportIntegrity)
             damagedSpaceportRepeatingExplore();
-            return true
+            break;
             case("leave"):
             damagedSpaceportRepeatingLeave()
             return false;
-
         }
-        break;
     }
 
 

@@ -9,4 +9,5 @@ export const playerStats = {
     maxSpeed: 500,
     speed: 250,
     chosenPlanet: {},
+    isGameOver: false,
 }
